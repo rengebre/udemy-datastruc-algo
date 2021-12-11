@@ -3,7 +3,7 @@ const collectStrings = function(obj) {
 
   for (const key in obj) {
     let val = obj[key];
-    if (!Array.isArray(val) && typeof val === 'object') {
+    if (typeof val === 'object' && !Array.isArray(val)) {
       retArr = retArr.concat(collectStrings(val));
     } else if (typeof val === 'string') {
       retArr.push(val);

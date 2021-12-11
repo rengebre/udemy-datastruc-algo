@@ -3,7 +3,7 @@ const stringifyNumbers = function(obj) {
 
   for (const key in obj) {
     const val = obj[key];
-    if (!Array.isArray(val) && typeof val === 'object') {
+    if (typeof val === 'object' && !Array.isArray(val)) {
       newObj[key] = stringifyNumbers(val); 
     } else if (typeof val === 'number') {
       newObj[key] = val.toString();
