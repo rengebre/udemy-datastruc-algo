@@ -151,7 +151,6 @@ class DoublyLinkedList {
     this.tail = node;
 
     while (node) {
-
       let tempNext = node.next;
       node.next = prev;
       node.prev = next;
