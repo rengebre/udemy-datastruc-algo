@@ -61,3 +61,5 @@ console.log(heap);
 
 console.log(heap.extractMax());
 console.log(heap);
+console.log(heap.extractMax());
+console.log(heap);
