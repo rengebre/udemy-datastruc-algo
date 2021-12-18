@@ -33,21 +33,19 @@ class Queue {
 
     this.first = popped.next;
     this.size--;
-    return popped.value;
+    return popped.val;
   }
 }
 
-let queue = new Queue();
-queue.enqueue("First");
-console.log(queue)
-queue.enqueue("Second");
-console.log(queue)
-queue.enqueue("Third");
-console.log(queue)
+module.exports = { Queue };
+// let queue = new Queue();
+// queue.enqueue("First");
+// // console.log(queue)
+// queue.enqueue("Second");
+// // console.log(queue)
+// queue.enqueue("Third");
+// // console.log(queue)
 
-queue.dequeue()
-console.log(queue)
-queue.dequeue()
-console.log(queue)
-queue.dequeue()
-console.log(queue)
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
+// console.log(queue.dequeue())
