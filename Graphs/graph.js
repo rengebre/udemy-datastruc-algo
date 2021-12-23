@@ -40,6 +40,3 @@ g.addEdge("Dallas", "Aspen");
 g.addEdge("Aspen", "Tokyo");
 
 console.log(g.adjacencyList);
-
-g.removeVertex("Dallas");
-console.log(g.adjacencyList)
