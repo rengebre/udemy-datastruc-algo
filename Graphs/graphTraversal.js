@@ -1,3 +1,5 @@
+const { Queue } = require('../StacksAndQueues/queue');
+
 class Graph {
   constructor() {
     this.adjacencyList = {};
@@ -52,20 +54,44 @@ class Graph {
   dfsIterative(start) {
     if (!this.adjacencyList[start]) return;
     let result = [];
-    let s = [];
+    let stack = [start];
     let visited = {};
-    s.push(start)
+    let vertex;
+
     visited[start] = true;
 
-    while (s.length > 0) {
-      let vertex = s.pop();
+    while (stack.length) {
+      vertex = stack.pop();
       result.push(vertex);
       this.adjacencyList[vertex].forEach(neighbor => {
         if (!visited[neighbor]) {
-          s.push(neighbor)
+          stack.push(neighbor)
           visited[neighbor] = true;
         };
       })
+    }
+
+    return result;
+  }
+
+  bfs(start) {
+    if (!this.adjacencyList[start]) return;
+    let result = [];
+    let visited = {[start]: true};
+    let q = new Queue();
+    let vertex;
+    
+    q.enqueue(start);
+
+    while (q.size) {
+      vertex = q.dequeue();
+      result.push(vertex);
+      this.adjacencyList[vertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          q.enqueue(neighbor);
+          visited[neighbor] = true;
+        }
+      });
     }
 
     return result;
@@ -92,4 +118,4 @@ g.addEdge("E", "F");
 
 
 console.log(g.adjacencyList);
-console.log(g.dfsIterative("A"));
+console.log(g.bfs("A"));
